@@ -7,7 +7,7 @@ import androidx.databinding.BindingAdapter
 
 
 /**
- * Using the [ImageLoader] library to load an image by URL into an [ImageView]
+ * Using [ImageLoader] library to load an image by URL into an [ImageView]
  */
 @BindingAdapter("imageLoader")
 fun bindImageUrl(imgView: ImageView, imgUrl: String?) {
