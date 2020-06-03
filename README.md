@@ -8,8 +8,8 @@ ImageLoader().with(context).load(imgUrl).into(imgView)
 2. It also handle disk-level caching
 3. It is easy to cancel the current image loading request just calling cancel() method.
   example: 
-  ### val loadTask = ImageLoader().with(context).load(imgUrl).into(imgView)
-  ### loadTast.cancel()
+  #### val loadTask = ImageLoader().with(context).load(imgUrl).into(imgView)
+  #### loadTask.cancel()
 4. Resizing the image before storing into the cache
 5. It uses Retrofit library for netwrok call
 
