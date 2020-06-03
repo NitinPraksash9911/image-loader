@@ -49,7 +49,6 @@ dependencies {
     implementation deps.lgcy
 
     //testImpl
-    testImplementation deps.testImpl.roboelectric
     testImplementation deps.testImpl.runner
     testImplementation deps.testImpl.core
     testImplementation deps.testImpl.rules

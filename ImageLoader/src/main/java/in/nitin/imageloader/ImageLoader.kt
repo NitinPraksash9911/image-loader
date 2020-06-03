@@ -12,8 +12,6 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
 import java.util.concurrent.Executors
-import java.util.concurrent.Future
-import java.util.concurrent.TimeUnit
 
 
 class ImageLoader {
@@ -24,7 +22,6 @@ class ImageLoader {
     private var diskCache: DiskCache? = null
     private var url: String? = null
     private var imageView: ImageView? = null
-    private var taskFuture: Future<*>? = null
     private lateinit var handler: Handler
 
     var processors = Runtime.getRuntime().availableProcessors()
@@ -120,11 +117,11 @@ class ImageLoader {
     }
 
     /**
-     * cancel any current running task
+     * To be able to cancel the on-flight load request in case the loading is not needed anymore
      * */
-    fun cancelTask() {
+    fun cancel() {
         try {
-            taskFuture!!.cancel(true)
+            executorService.shutdownNow()
 
         } catch (e: Exception) {
             Log.e(TAG, e.message)
@@ -139,25 +136,6 @@ class ImageLoader {
         msg.obj = bitmap
         handler.sendMessage(msg)
     }
-
-
-    /**
-     * use to shutdown the executor service gracefully
-     */
-    private fun graceFullyShutDown() {
-        executorService.shutdown()
-        try {
-            if (!executorService.awaitTermination(2000, TimeUnit.MILLISECONDS)) {
-                executorService.shutdownNow()
-                Log.i(TAG, "imageLoader service shutdown")
-
-            }
-        } catch (e: InterruptedException) {
-            Log.e(TAG, e.message)
-            executorService.shutdownNow()
-        }
-    }
-
 
     /**
      * @param imageUrl: getting bitmap from url using retrofit

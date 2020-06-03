@@ -20,7 +20,6 @@ versions.legacy_support = "1.0.0"
 versions.gradle = '4.0.0'
 versions.retrofit = '2.7.1'
 versions.okHttp_interceptor = '4.4.0'
-versions.roboelectric = '4.3'
 versions.test_runner = '1.2.0'
 versions.test_core = '1.2.0'
 versions.test_rule = '1.2.0'
@@ -48,7 +47,6 @@ deps.ktx_core = "androidx.core:core-ktx:$versions.core_kotlin"
 
 //testImplementation
 def testImpl = [:]
-testImpl.roboelectric = "org.robolectric:robolectric:$versions.roboelectric"
 testImpl.runner = "androidx.test:runner:$versions.test_runner"
 testImpl.core = "androidx.test:core:$versions.test_core"
 testImpl.rules = "androidx.test:rules:$versions.test_rule"
@@ -98,26 +96,12 @@ nav.fargment = "androidx.navigation:navigation-fragment-ktx:$versions.nav_compon
 nav.ui = "androidx.navigation:navigation-ui-ktx:$versions.nav_component"
 deps.nav = nav
 
-////roomDb
-//def room = [:]
-//room.runtime = "androidx.room:room-runtime:$versions.room_db"
-//room.ktx = "androidx.room:room-ktx:$versions.room_db"
-//room.compiler = "androidx.room:room-compiler:$versions.room_db"
-//deps.room = room
-
-// retrofit
 // retrofit
 def retrofit = [:]
 retrofit.retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit"
 retrofit.gson_convertor = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
 retrofit.interceptor = "com.squareup.okhttp3:logging-interceptor:$versions.okHttp_interceptor"
 deps.retrofit = retrofit
-
-////glide
-//def glide = [:]
-//glide.runtime = "com.github.bumptech.glide:glide:$versions.glide"
-//glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
-//deps.glide = glide
 
 
 ext.deps = deps
