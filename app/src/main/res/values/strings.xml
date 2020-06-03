@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GreadyAssigment</string>
+
+
+    <string name="transition_avatar">avatar %s</string>
+    <string name="post_images">Post Images</string>
+
+</resources>
